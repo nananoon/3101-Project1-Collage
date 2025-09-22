@@ -21,15 +21,92 @@
 }
 
 /* small caption style */
-.text-caption {
+.text-caption0 {
   font-family: Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #156734;
+  padding: 7px;
+  background-color: white;
+}
+
+.text-caption1 {
+  font-family: Arial, sans-serif;
+  font-size: 1.8rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #156734;
 }
 
-/* Parallax base styles
+.text-caption2 {
+  font-family: Arial, sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: #156734;
+  opacity: 0.4;
+  color: white;
+}
+
+header a {
+  text-decoration: none;   /* removes underline */
+  color: inherit;          /* keeps your headline + script colors */
+}
+header a:hover {
+  text-decoration: none;   /* no underline even on hover */
+}
+
+/* ----------------------------------------------- */
+
+body{
+    padding: min(50px, 7%);
+    margin:0%;
+    cursor: url('pointer.png') ;
+}
+
+.grid-container{
+    display: grid;
+    border: 1px solid #156734;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    padding: 5px;;
+}
+
+.card{
+    padding: 2em;
+    background-color: transparent;
+    box-shadow: 0 0 20px 2 px rgba(0, 0, 0, 0.5)
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    transition: 1s;
+    cursor: url('pointer.png') ;
+}
+
+footer {
+  background-color: #156734;
+  color: white;                /* stays white for contrast */
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+
+  /* match .text-caption */
+  font-family: Arial, sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Parallax base styles PAGE 1
   --------------------------------------------- */
 
   .parallax {
@@ -160,5 +237,65 @@
    background-position: center;
   }
 
+/* Parallax base styles PAGE 2
+  --------------------------------------------- */
+  /* FLEX HOVER EFFECT - The Main Part! */
+    .gallery {
+      display: flex;           /* Makes items sit side by side */
+      gap: 4px;               /* Space between items */
+      height: 400px;          /* Fixed height for the gallery */
+      max-width: 1000px;      /* Maximum width */
+      margin: 0 auto;         /* Center the gallery */
+    }
+
+    .image {
+      /* FLEX PROPERTIES - This is the key! */
+      flex:1;                /* Each item takes equal space initially */
+      
+      /* STYLING */
+      position: relative;
+      padding: 8px;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;     
+
+      /* SMOOTH ANIMATION */
+      transition: flex 0.4s ease-in-out;
+      cursor: pointer;
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;      /* Makes images fill the container nicely */
+      border-radius: 4px;
+    }
+
+    /* THE MAGIC HOVER EFFECT! */
+    .image:hover {
+      flex: 2;                /* On hover, this item takes 3x more space */
+      transform: translateY(-5px); /* Optional: slight lift effect */
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .gallery {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .image {
+        height: 200px;
+        flex: none;
+      }
+      
+      .image:hover {
+        flex: none;
+        transform: scale(2);
+      }
+    }
+
+   
 
   
